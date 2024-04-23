@@ -1,10 +1,18 @@
-import { Button } from "./components/ui/button";
+import { Helmet, HelmetProvider } from "react-helmet-async";
+import { RouterProvider } from "react-router-dom";
+
+import { router } from "./routes";
+
+import "./global.css";
 
 export function App() {
   return (
-    <div className="flex h-screen items-center justify-center">
-      <h1>Pizzaria</h1>
-      <Button>enviar</Button>
-    </div>
-  );
+    <HelmetProvider>
+      {/* %s e uma variavel que pega de todas as paginas  */}
+      <Helmet titleTemplate="%s | pizza.shop" />
+      <RouterProvider router={router} />
+
+    </HelmetProvider>
+  )
+  
 }
